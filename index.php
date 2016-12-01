@@ -23,10 +23,14 @@
             <div class="row">
                 <div class="col s12">
                     <div class="col s4 center">
-                        <i class="white-text material-icons medium">add</i>
+                        <a href="#/home">
+                            <i class="white-text material-icons medium">add</i>
+                        </a>
                     </div>
                     <div class="col s4 center">
-                        <i class="white-text material-icons medium">grid_on</i>
+                        <a href="#/calendar">
+                            <i class="white-text material-icons medium">grid_on</i>
+                        </a>
                     </div>
                     <div class="col s4 center">
                         <i class="white-text material-icons medium">person</i>
@@ -51,7 +55,6 @@
     <script type="text/javascript" src="js/uiBreadcrumbs.min.js"></script>
     <script type="text/javascript" src="js/angular-ui-tree.min.js"></script>
     <script type="text/javascript" src="js/angular-local-storage.min.js"></script>
-    <script type="text/javascript" src="js/vfs_fonts.min.js"></script>
 
     <!--App scripts-->
     <script type="text/javascript" src="js/factories.js"></script>
