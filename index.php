@@ -18,8 +18,24 @@
         <ui-view></ui-view>
       </div>
     </main>
-    <footer>
-      
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="col s4 center">
+                        <i class="white-text material-icons medium">add</i>
+                    </div>
+                    <div class="col s4 center">
+                        <i class="white-text material-icons medium">grid_on</i>
+                    </div>
+                    <div class="col s4 center">
+                        <i class="white-text material-icons medium">person</i>
+                    </div>
+                    <!--<h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>-->
+                </div>
+            </div>
+        </div>
     </footer>
     <!--SCRIPTS-->
 

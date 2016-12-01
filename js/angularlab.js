@@ -206,6 +206,7 @@ app.controller('ManageCtrl', [
 
 		$scope.init = function(){
 			console.log('init');
+			console.log(new Date().getWeek());
 		}
 
 		$scope.init();
