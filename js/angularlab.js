@@ -85,7 +85,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRo
 		params:{
 			name: 'calendar'
 		},
-		controller:'HomeCtrl',
+		controller:'CalendarCtrl',
 		data: {
 			displayName: 'Calendrier',
 		},
@@ -207,4 +207,8 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
   	}
 
 	$scope.init();
+}]);
+
+app.controller('CalendarCtrl',['$state','$scope','$rootScope',function ($state,$scope,$rootScope){
+	$scope.boolean = true;
 }]);
