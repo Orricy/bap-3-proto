@@ -1,4 +1,4 @@
-var app = angular.module('AngularLab',['ui.router','ngAnimate','ui.materialize','angularUtils.directives.uiBreadcrumbs','factories','ui.tree','LocalStorageModule']);
+var app = angular.module('AngularLab',['ui.router','ngAnimate','ui.materialize','angularUtils.directives.uiBreadcrumbs','factories','ui.tree','LocalStorageModule','ngGeolocation']);
 var serverPort = 8080;
 var serverUrl = 'http://localhost:'+serverPort;
 
@@ -179,40 +179,32 @@ app.controller('MainCtrl',['$scope','$rootScope','db','$interval','$state','$sta
 
 }]);
 
-app.controller('ManageCtrl', [
-	'$scope',
-	'$state',
-	'$rootScope',
-	'$filter',
-	'localStorageService',
-	,function($scope,$state,$rootScope,$filter,localStorageService){
-	
-	}]);
+app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService','$geolocation',function ($state,$scope,$rootScope,localStorageService,$geolocation){
+	//$scope permet de stocker une variable accessible dans la vue par {{}} pour l'affichage
+	$scope.test = "test"; //s'affichera dans la vue comme ça {{test}}
+	//Le scope peut contenir tout type de variables, de la function à l'undefined.
+	//Le rootScope est une variable accessible dans tous les controller et qui est appelé de la sorte
+	$rootScope.test = "test"; //s'affichera dans la vue comme ça {{test}} mais il y aura un conflit avec le scope de ce controller
+	//Le $state permet de changer de controller
+	//$state.go('leNomDuController');
 
-	app.controller('ReportCtrl', ['$q','$scope','$state','$rootScope','reports','sites','branches','users','localStorageService','userRequest',function($q,$scope,$state,$rootScope,reports,sites,branches,users,localStorageService,userRequest){
+	//Le localStorageService permet d'enregistrer une variable en local voir fonction submit et getItem
 
-	}]);
+	$scope.init = function(){
+		console.log('init');
+		console.log(new Date().getWeek());
+	}
 
-	app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',function ($state,$scope,$rootScope,localStorageService){
-		//$scope permet de stocker une variable accessible dans la vue par {{}} pour l'affichage
-		$scope.test = "test"; //s'affichera dans la vue comme ça {{test}}
-		//Le scope peut contenir tout type de variables, de la function à l'undefined.
-		//Le rootScope est une variable accessible dans tous les controller et qui est appelé de la sorte
-		$rootScope.test = "test"; //s'affichera dans la vue comme ça {{test}} mais il y aura un conflit avec le scope de ce controller
-		//Le $state permet de changer de controller
-		//$state.go('leNomDuController');
+	//Geolocalisation
+	if(navigator.geolocation) {
+    	navigator.geolocation.getCurrentPosition(function(position){
+      		$scope.$apply(function(){
+        		$scope.position = position;
+        		//Envoie dans la console la position
+        		console.log(position.coords);
+      		});
+    	});
+  	}
 
-		//Le localStorageService permet d'enregistrer une variable en local voir fonction submit et getItem
-
-		$scope.init = function(){
-			console.log('init');
-			console.log(new Date().getWeek());
-		}
-
-		$scope.init();
-	}]);
-
-	//Test d'affichage des utilisateurs (voir page /test)
-	app.controller('UserCtrl',['$scope','$rootScope','$state','localStorageService',function($scope,$rootScope,$state,localStorageService){
-
-	}]);
+	$scope.init();
+}]);
