@@ -5,8 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
     <link href="css/material-icons.css" rel="stylesheet">
     <link href="css/angular-ui-tree.min.css" rel="stylesheet">
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" media="screen, print, handheld" type="text/css" href="css/calendar.css" />
     <meta charset="utf-8">
   </head>
 	<body>
@@ -26,7 +26,9 @@
                         <i class="white-text material-icons medium">add</i>
                     </div>
                     <div class="col s4 center">
+                        <a href="#/calendar">
                         <i class="white-text material-icons medium">grid_on</i>
+                        </a>
                     </div>
                     <div class="col s4 center">
                         <i class="white-text material-icons medium">person</i>
@@ -57,6 +59,7 @@
     <script type="text/javascript" src="js/factories.js"></script>
     <script type="text/javascript" src="js/angularlab.js"></script>
     <!--Materialize init scripts-->
+    <script type="text/javascript" src="js/calendar.js"></script>
     <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();

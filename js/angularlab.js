@@ -79,13 +79,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRo
 		module:'public'
 	});
 
-	$stateProvider.state('login',{
-		url:'/login',
-		templateUrl:'templates/login.html',
+	$stateProvider.state('calendar',{
+		url:'/calendar',
+		templateUrl:'templates/calendrier.html',
 		params:{
-			name: 'login'
+			name: 'calendar'
 		},
-		controller:'AuthCtrl',
+		controller:'HomeCtrl',
 		data: {
 			displayName: 'Connexion',
 		},
