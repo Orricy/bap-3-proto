@@ -18,6 +18,12 @@ nav{
 	height:64px;
 }
 
+#calendar{
+	display: block;
+	background-color: white;
+	width: 80%;
+	margin-left: 10%;
+}
 /*
 
 HELPERS

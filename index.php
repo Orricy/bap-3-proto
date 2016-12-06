@@ -7,6 +7,7 @@
     <link href="css/angular-ui-tree.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" media="screen, print, handheld" type="text/css" href="css/calendar.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
     <meta charset="utf-8">
   </head>
 	<body>
@@ -29,11 +30,7 @@
                     </div>
                     <div class="col s4 center">
                         <a href="#/calendar">
-<<<<<<< HEAD
-                        <i class="white-text material-icons medium">grid_on</i>
-=======
                             <i class="white-text material-icons medium">grid_on</i>
->>>>>>> 2686f1ec88be50a57d405bc1d9705e21d37c8507
                         </a>
                     </div>
                     <div class="col s4 center">
@@ -49,9 +46,14 @@
 
     <!--Core scripts-->
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/angular-153.min.js"></script>
 
+    <!--Angular Calendar-->
+    <script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
     <!--Angular Plugins-->
     <script type="text/javascript" src="js/angular-animate-153.min.js"></script>
     <script type="text/javascript" src="js/angular-ui-router.min.js"></script>
@@ -62,9 +64,9 @@
 
     <!--App scripts-->
     <script type="text/javascript" src="js/factories.js"></script>
+    <script type="text/javascript" src="js/calendar.js"></script>
     <script type="text/javascript" src="js/angularlab.js"></script>
     <!--Materialize init scripts-->
-    <script type="text/javascript" src="js/calendar.js"></script>
     <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();

@@ -1,4 +1,4 @@
-var app = angular.module('AngularLab',['ui.router','ngAnimate','ui.materialize','angularUtils.directives.uiBreadcrumbs','factories','ui.tree','LocalStorageModule','ngGeolocation']);
+var app = angular.module('AngularLab',['ui.router','ngAnimate','ui.materialize','angularUtils.directives.uiBreadcrumbs','factories','ui.tree','LocalStorageModule','ui.calendar']);
 var serverPort = 8080;
 var serverUrl = 'http://localhost:'+serverPort;
 
@@ -81,19 +81,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRo
 
 	$stateProvider.state('calendar',{
 		url:'/calendar',
-<<<<<<< HEAD
-		templateUrl:'templates/calendrier.html',
-		params:{
-			name: 'calendar'
-		},
-		controller:'HomeCtrl',
-=======
 		templateUrl:'templates/calendarentreprise.html',
 		params:{
 			name: 'calendar'
 		},
 		controller:'CalendarCtrl',
->>>>>>> 2686f1ec88be50a57d405bc1d9705e21d37c8507
 		data: {
 			displayName: 'Calendrier',
 		},
@@ -187,7 +179,7 @@ app.controller('MainCtrl',['$scope','$rootScope','db','$interval','$state','$sta
 
 }]);
 
-app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService','$geolocation',function ($state,$scope,$rootScope,localStorageService,$geolocation){
+app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',function ($state,$scope,$rootScope,localStorageService){
 	//$scope permet de stocker une variable accessible dans la vue par {{}} pour l'affichage
 	$scope.test = "test"; //s'affichera dans la vue comme ça {{test}}
 	//Le scope peut contenir tout type de variables, de la function à l'undefined.
@@ -219,4 +211,28 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 
 app.controller('CalendarCtrl',['$state','$scope','$rootScope',function ($state,$scope,$rootScope){
 	$scope.boolean = true;
+	$scope.eventSources = [];
+	/* config object */
+    $scope.uiConfig = {
+      calendar:{
+        height: 600,
+        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet','Août', 'Spetembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['janv', 'févr', 'mars', 'avr', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        timeFormat:'HH:mm',
+        selectable: true,
+        unselectAuto: true,
+        editable: true,
+        header:{
+          left: 'month agendaWeek agendaDay',
+          center: 'title',
+          right: 'today prev,next'
+        },
+        eventClick: $scope.alertEventOnClick,
+        eventDrop: $scope.alertOnDrop,
+        eventResize: $scope.alertOnResize
+      }
+    };
+	//calendrier();
 }]);
