@@ -63,6 +63,7 @@
 
     <!--Leaflet-->
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script type="text/javascript" src="config/config.js"></script>
     <!--App scripts-->
     <script type="text/javascript" src="js/factories.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
