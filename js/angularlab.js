@@ -195,6 +195,8 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 		console.log(new Date().getWeek());
 	}
 
+	
+
 	//Geolocalisation
 	if(navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(function(position){
@@ -202,6 +204,9 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
         		$scope.position = position;
         		//Envoie dans la console la position
         		console.log(position.coords);
+        		var mymap = L.map('myPos').setView([position.coords.latitude, position.coords.longitude], 20);
+        		var OpenStreetMap_Mapnik = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidmVyYmVydCIsImEiOiJjaXdwYnFxY2swMDEwMnRwbXBxaWlvaG16In0.6fHI67uW7qmboP9QiWFBxA').addTo(mymap);
+        		var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
       		});
     	});
   	}
