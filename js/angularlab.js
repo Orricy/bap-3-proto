@@ -179,7 +179,7 @@ app.controller('MainCtrl',['$scope','$rootScope','db','$interval','$state','$sta
 
 }]);
 
-app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',function ($state,$scope,$rootScope,localStorageService){
+app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService','$interval',function ($state,$scope,$rootScope,localStorageService,$interval){
 	//$scope permet de stocker une variable accessible dans la vue par {{}} pour l'affichage
 	$scope.test = "test"; //s'affichera dans la vue comme ça {{test}}
 	//Le scope peut contenir tout type de variables, de la function à l'undefined.
@@ -195,7 +195,9 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 		console.log(new Date().getWeek());
 	}
 
-	
+	$interval(function () {
+        console.log('timeout now');
+    }, 60000);
 
 	//Geolocalisation
 	if(navigator.geolocation) {
