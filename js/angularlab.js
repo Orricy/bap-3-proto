@@ -234,5 +234,9 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope',function ($state,$
         eventResize: $scope.alertOnResize
       }
     };
+
+    $scope.triggerModal = function(){
+    	$("#modal1").openModal();
+    }
 	//calendrier();
 }]);
