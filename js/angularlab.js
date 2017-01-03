@@ -179,7 +179,7 @@ app.controller('MainCtrl',['$scope','$rootScope','db','$interval','$state','$sta
 
 }]);
 
-app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',function ($state,$scope,$rootScope,localStorageService){
+app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService','$interval',function ($state,$scope,$rootScope,localStorageService,$interval){
 	//$scope permet de stocker une variable accessible dans la vue par {{}} pour l'affichage
 	$scope.test = "test"; //s'affichera dans la vue comme ça {{test}}
 	//Le scope peut contenir tout type de variables, de la function à l'undefined.
@@ -195,6 +195,10 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 		console.log(new Date().getWeek());
 	}
 
+	$interval(function () {
+        console.log('timeout now');
+    }, 60000);
+
 	//Geolocalisation
 	if(navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(function(position){
@@ -202,6 +206,9 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
         		$scope.position = position;
         		//Envoie dans la console la position
         		console.log(position.coords);
+        		var mymap = L.map('myPos').setView([position.coords.latitude, position.coords.longitude], 20);
+        		var OpenStreetMap_Mapnik = L.tileLayer(mapToken).addTo(mymap);
+        		var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
       		});
     	});
   	}

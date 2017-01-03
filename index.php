@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" media="screen, print, handheld" type="text/css" href="css/calendar.css" />
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <meta charset="utf-8">
   </head>
 	<body>
@@ -19,7 +20,7 @@
         <ui-view></ui-view>
       </div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer orange darken-4">
         <div class="container">
             <div class="row">
                 <div class="col s12">
@@ -36,8 +37,6 @@
                     <div class="col s4 center">
                         <i class="white-text material-icons medium">person</i>
                     </div>
-                    <!--<h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>-->
                 </div>
             </div>
         </div>
@@ -62,6 +61,9 @@
     <script type="text/javascript" src="js/angular-ui-tree.min.js"></script>
     <script type="text/javascript" src="js/angular-local-storage.min.js"></script>
 
+    <!--Leaflet-->
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script type="text/javascript" src="config/config.js"></script>
     <!--App scripts-->
     <script type="text/javascript" src="js/factories.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
@@ -74,5 +76,10 @@
       });
       
     </script>
+    <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
 	</body>
 </html>
