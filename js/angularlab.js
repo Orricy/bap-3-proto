@@ -209,6 +209,7 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
         		var mymap = L.map('myPos').setView([position.coords.latitude, position.coords.longitude], 20);
         		var OpenStreetMap_Mapnik = L.tileLayer(mapToken).addTo(mymap);
         		var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
+        		console.log(marker);
       		});
     	});
   	}

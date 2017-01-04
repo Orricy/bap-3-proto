@@ -74,7 +74,6 @@
         $(".button-collapse").sideNav();
         $('.modal-trigger').leanModal();
       });
-      
     </script>
 	</body>
 </html>
