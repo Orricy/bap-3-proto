@@ -1,5 +1,5 @@
  <!-- Modal Trigger -->
-  <button ng-click="triggerModal()" data-target="modal1" class="btn">Modal</button>
+  <button data-target="modal1" id="modal-trigger" class="btn">Modal</button>
 
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
@@ -29,8 +29,9 @@
 <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
 
 <script>
- $('#datepicker').pickadate({
+$('#modal-trigger').leanModal();
+$('#datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+});
 </script>
