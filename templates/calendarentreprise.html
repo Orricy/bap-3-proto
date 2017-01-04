@@ -1,17 +1,15 @@
+<!-- Modal Trigger -->
+<button ng-click="triggerModal()" data-target="modal1" class="btn">Modal</button>
 
- <!-- Modal Trigger -->
-  <button ng-click="triggerModal()" data-target="modal1" class="btn">Modal</button>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <p>Date: <input type="text" id="datepicker"></p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-<div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<p>Date: <input type="text" id="datepicker"></p>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+	</div>
+</div>
 
 
 <div class="row">
@@ -23,3 +21,9 @@
 </div>
 <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources"></div>
 
+<script>
+$('#datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+});
+</script>
