@@ -269,6 +269,14 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
 	        className: ['openSesame']
       	});
     };
+
+    $scope.submit = function(){
+    	$scope.events.push({
+	        title: $scope.title,
+	        start: new Date(y, m, 28),
+	        end: new Date(y, m, 29)
+      	});
+    }
     /* remove event */
     $scope.remove = function(index) {
       	$scope.events.splice(index,1);
