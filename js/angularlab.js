@@ -223,6 +223,8 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
 	/* config object */
 
     var date = new Date();
+    var min = date.getMinutes();
+    var h = date.getHours();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
@@ -231,7 +233,7 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
 
     /* event source that contains custom events on the scope */
     $scope.events = [
-      	{title: 'All Day Event',start: new Date(y, m, 1)},
+      	{title: 'All Day Event',start: new Date(y, m, 1, 13, 20)},
     ];
     /* event source that calls a function on every view switch */
 
