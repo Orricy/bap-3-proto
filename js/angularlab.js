@@ -263,18 +263,18 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
     /* add custom event*/
     $scope.addEvent = function() {
       	$scope.events.push({
-	        title: 'Open Sesame',
-	        start: new Date(y, m, 28),
-	        end: new Date(y, m, 29),
-	        className: ['openSesame']
+	        title: $scope.title,
+	        start: new Date($scope.date),
+	        end: new Date($scope.date),
+	        className: [$scope.title]
       	});
     };
 
     $scope.submit = function(){
     	$scope.events.push({
 	        title: $scope.title,
-	        start: new Date(y, m, 28),
-	        end: new Date(y, m, 29)
+	        start: new Date($scope.date),
+	        end: new Date($scope.date)
       	});
     }
     /* remove event */
@@ -316,7 +316,8 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
 	        eventClick: $scope.alertOnEventClick,
 	        eventDrop: $scope.alertOnDrop,
 	        eventResize: $scope.alertOnResize,
-	        eventRender: $scope.eventRender
+	        eventRender: $scope.eventRender,
+	        
       	}
     };
 
