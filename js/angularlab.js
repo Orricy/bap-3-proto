@@ -193,26 +193,29 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 	$scope.init = function(){
 		console.log('init');
 		console.log(new Date().getWeek());
+		$scope.mymap = L.map('myPos').setView([0, 0], 3);
+	    var OpenStreetMap_Mapnik = L.tileLayer(mapToken).addTo($scope.mymap);
+	    $scope.marker = L.marker([0, 0]).addTo($scope.mymap);
 	}
 
-	$interval(function () {
-        console.log('timeout now');
-    }, 60000);
-
-	//Geolocalisation
-	if(navigator.geolocation) {
+	function getPosition(){
+		//Geolocalisation
     	navigator.geolocation.getCurrentPosition(function(position){
       		$scope.$apply(function(){
         		$scope.position = position;
         		//Envoie dans la console la position
         		console.log(position.coords);
-        		var mymap = L.map('myPos').setView([position.coords.latitude, position.coords.longitude], 20);
-        		var OpenStreetMap_Mapnik = L.tileLayer(mapToken).addTo(mymap);
-        		var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
-        		console.log(marker);
+        		$scope.mymap.flyTo([position.coords.latitude, position.coords.longitude],18);
+        		$scope.marker.setLatLng([position.coords.latitude, position.coords.longitude]);
       		});
     	});
-  	}
+	}
+
+	if(navigator.geolocation) {
+		getPosition();
+		$interval(getPosition(), 60000);
+	}
+	else alert("L'application a besoin de la géolocalisation pour fonctionner");
 
 	$scope.init();
 }]);
