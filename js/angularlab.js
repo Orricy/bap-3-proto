@@ -264,15 +264,16 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
     };
     /* add custom event*/
     $scope.addEvent = function() {
-    	var start = new Date($scope.time);
+    	var start = new Date($scope.timeBegin);
+    	var end = new Date($scope.timeEnd);
     	//Ajouter une variable end qui génére un new Date avec la valeur du champ de fin
     	var date = new Date($scope.date);
-    	console.log([date.getFullYear(), date.getMonth(), date.getDay(), start.getHours(), start.getMinutes()]);
+    	console.log([date.getFullYear(), date.getMonth(), date.getDay(), start.getHours(), start.getMinutes(), end.getHours(), end.getMinutes()]);
       	$scope.events.push({
 	        title: $scope.title,
-	        start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), start.getHours(), start.getMinutes()),
+	        start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), start.getHours(), start.getMinutes(), end.getHours(), end.getMinutes()),
 	        //Remplacer la variable start par la variable end
-	        end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), start.getHours(), start.getMinutes()),
+	        end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), end.getHours(), end.getMinutes()),
 	        className: [$scope.title]
       	});
     };
