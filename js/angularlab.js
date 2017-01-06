@@ -264,10 +264,13 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
     };
     /* add custom event*/
     $scope.addEvent = function() {
+    	var start = new Date($scope.time);
+    	var date = new Date($scope.date);
+    	console.log([date.getFullYear(), date.getMonth(), date.getDay(), start.getHours(), start.getMinutes()]);
       	$scope.events.push({
 	        title: $scope.title,
-	        start: new Date($scope.date),
-	        end: new Date($scope.date),
+	        start: new Date(date.getFullYear(), date.getMonth(), date.getDate(), start.getHours(), start.getMinutes()),
+	        end: new Date(date.getFullYear(), date.getMonth(), date.getDate(), start.getHours() + 2, start.getMinutes()),
 	        className: [$scope.title]
       	});
     };
