@@ -1,5 +1,3 @@
-<button data-target="modal1" id="modal-trigger" class="btn">Modal</button>
-
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
     <div class="modal-content height-5">
@@ -8,14 +6,24 @@
             <label for="first_name">Titre</label>
         </div>
         <div>
-            <input type="text" id="datepicker" ng-model="date">
-            <input type="time" id="timepicker" ng-model="timeBegin">
-            <input type="time" id="timepickerEnd" ng-model="timeEnd">
-            <button type="button" class="btn btn-primary" ng-click="addEvent()">Add Event</button>
+	        <div class="input-field col s12">
+	        	<label for="datepicker">Jour</label>
+	            <input type="text" id="datepicker" ng-model="date">
+	        </div>
+	        <div class="row">
+	        	<div class="input-field col s6">
+		        	<h6>Début</h6>
+		            <input type="time" id="timepicker" ng-model="timeBegin">
+		        </div>
+		        <div class="input-field col s6">
+		        	<h6>Fin</h6>
+		            <input type="time" id="timepickerEnd" ng-model="timeEnd">
+		        </div>
+	        </div>
+	        <div class="center">
+	        	<button type="button" class="btn orange darken-4" ng-click="addEvent()">Ajouter</button>
+	        </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
 
@@ -23,6 +31,7 @@
 <div class="row">
 	<nav class="orange darken-4">
 		<div class="nav-wrapper">
+			<button data-target="modal1" id="modal-trigger" class="btn amber darken-4">Ajouter un événement</button>
   			<a href="#" class="brand-logo center">Mon Calendrier</a>
 		</div>
 	</nav>

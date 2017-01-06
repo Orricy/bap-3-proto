@@ -213,7 +213,7 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 
 	if(navigator.geolocation) {
 		getPosition();
-		$interval(getPosition(), 60000);
+		$interval(getPosition, 60000);
 	}
 	else alert("L'application a besoin de la géolocalisation pour fonctionner");
 
