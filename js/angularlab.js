@@ -193,9 +193,9 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
 	$scope.init = function(){
 		console.log('init');
 		console.log(new Date().getWeek());
-		$scope.mymap = L.map('myPos').setView([0, 0], 3);
+		$scope.mymap = L.map('myPos').setView([47.4835, 2.3448], 5);
 	    var OpenStreetMap_Mapnik = L.tileLayer(mapToken).addTo($scope.mymap);
-	    $scope.marker = L.marker([0, 0]).addTo($scope.mymap);
+	    $scope.marker = L.marker([47.4835, 2.3448]).addTo($scope.mymap);
 	}
 
 	function getPosition(){
@@ -205,7 +205,7 @@ app.controller('HomeCtrl',['$state','$scope','$rootScope','localStorageService',
         		$scope.position = position;
         		//Envoie dans la console la position
         		console.log(position.coords);
-        		$scope.mymap.flyTo([position.coords.latitude, position.coords.longitude],18);
+        		$scope.mymap.flyTo([position.coords.latitude, position.coords.longitude],18, {duration: 2});
         		$scope.marker.setLatLng([position.coords.latitude, position.coords.longitude]);
       		});
     	});
@@ -236,7 +236,15 @@ app.controller('CalendarCtrl',['$state','$scope','$rootScope','$compile','uiCale
 
     /* event source that contains custom events on the scope */
     $scope.events = [
-      	{title: 'All Day Event',start: new Date(y, m, 1, 13, 20)},
+      	{title: 'Trajet Annecy',start: new Date(y, m, 1, 13, 20), end: new Date(y, m, 1, 17, 20)},
+      	{title: 'Trajet Bordeaux',start: new Date(y, 0, 5, 11, 10), end: new Date(y, 0, 5, 18, 20)},
+      	{title: 'Trajet Lyon',start: new Date(y, 0, 8, 9, 0), end: new Date(y, 0, 8, 12, 30)},
+      	{title: 'Trajet Toulouse',start: new Date(y, 0, 11, 14, 0), end: new Date(y, 0, 11, 19, 0)},
+      	{title: 'Trajet Bordeaux',start: new Date(y, 0, 12, 11, 10), end: new Date(y, 0, 12, 18, 20)},
+      	{title: 'Trajet Paris',start: new Date(y, 0, 17, 10, 0), end: new Date(y, 0, 17, 13, 15)},
+      	{title: 'Trajet Bordeaux',start: new Date(y, 0, 22, 11, 10), end: new Date(y, 0, 22, 18, 20)},
+      	{title: 'Trajet Marseilles',start: new Date(y, 0, 25, 8, 10), end: new Date(y, 0, 25, 14, 20)},
+      	{title: 'Trajet Paris',start: new Date(y, 0, 5, 15, 0), end: new Date(y, 0, 5, 18, 0)},
     ];
     /* event source that calls a function on every view switch */
 

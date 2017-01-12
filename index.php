@@ -24,18 +24,15 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <div class="col s4 center">
+                    <div class="col s6 center">
                         <a href="#/home">
                             <i class="white-text material-icons medium">add</i>
                         </a>
                     </div>
-                    <div class="col s4 center">
+                    <div class="col s6 center">
                         <a href="#/calendar">
                             <i class="white-text material-icons medium">grid_on</i>
                         </a>
-                    </div>
-                    <div class="col s4 center">
-                        <i class="white-text material-icons medium">person</i>
                     </div>
                 </div>
             </div>
