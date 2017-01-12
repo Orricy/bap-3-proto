@@ -1,0 +1,1 @@
+var mapToken = 'https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoidmVyYmVydCIsImEiOiJjaXdwYnFxY2swMDEwMnRwbXBxaWlvaG16In0.6fHI67uW7qmboP9QiWFBxA';
